@@ -29,7 +29,7 @@ export default class TicketOption extends Component {
   componentDidMount() {
     ShowtimeService.getShowTimesByMovieId(this.props.movieId).then((res) => {
       // tạo mảng location
-      let locations = res.data.map((showtime) => {
+      let locations = res.data.content.map((showtime) => {
         return {
           id: showtime.location.id,
           name: showtime.location.name,
@@ -43,7 +43,7 @@ export default class TicketOption extends Component {
       );
 
       // tạo mảng theater
-      let theaters = res.data.map((showtime) => {
+      let theaters = res.data.content.map((showtime) => {
         return {
           id: showtime.theater.id,
           name: showtime.theater.name,
@@ -57,7 +57,7 @@ export default class TicketOption extends Component {
       );
 
       // tạo mảng time
-      let timeStarts = res.data.map((showtime) => {
+      let timeStarts = res.data.content.map((showtime) => {
         return {
           id: showtime.timeStart.substring(0, 10),
           name: this.dateToString(parseJSON(showtime.timeStart)),
@@ -72,9 +72,10 @@ export default class TicketOption extends Component {
       this.setState({
         locations: locations,
         theaters: theaters,
-        // showtimes: res.data.content
-        showtimes: res.data,
-        filtedShowtimes: res.data,
+        showtimes: res.data.content,
+        // showtimes: res.data,
+        
+        filtedShowtimes: res.data.content,
         timeStarts: timeStarts,
       });
       console.log(this.state);
