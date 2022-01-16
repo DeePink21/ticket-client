@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 
-export default class Header extends Component {
+class Header extends Component {
   constuctor() {
     this.logout = this.logout.bind(this);
   }
@@ -81,3 +81,5 @@ export default class Header extends Component {
     );
   }
 }
+
+export default withRouter(Header);
