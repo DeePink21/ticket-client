@@ -8,7 +8,8 @@ class Newslater extends React.Component {
           <div className="container">
             <div
               className="newslater-container bg_img"
-              data-background="assets/images/newslater/newslater-bg01.jpg"
+              style={{ backgroundImage: `url("${"/assets/images/newslater/newslater-bg01.jpg"}")` }}
+              data-background="/assets/images/newslater/newslater-bg01.jpg"
             >
               <div className="newslater-wrapper">
                 <h5 className="cate">Đăng ký Boleto </h5>

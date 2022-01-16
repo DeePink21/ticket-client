@@ -193,6 +193,7 @@ export default class BookingComplete extends Component {
                         // process.env.PUBLIC_URL +
                         "/assets/images/account/account-bg.jpg"
                     }
+                    style={{ backgroundImage: `url("${"/assets/images/account/account-bg.jpg"}")` }}
                 >
                     <div className="container">
                         <div className="padding-top padding-bottom">

@@ -10,37 +10,25 @@ export default class BannerMovieDetail extends Component {
 
   openInNewTab = (url) => {
     if (!url) url = "https://www.youtube.com/";
-    const newWindow = window.open(url, '_blank', 'noopener,noreferrer')
-    if (newWindow) newWindow.opener = null
-  }
-
+    const newWindow = window.open(url, "_blank", "noopener,noreferrer");
+    if (newWindow) newWindow.opener = null;
+  };
 
   render() {
     console.log("banner: ");
     console.log(this.props.movie);
 
     const movieName = {
-      fontSize: "xx-large"
-    }
+      fontSize: "xx-large",
+    };
 
     return (
       <div>
         <section
           className="details-banner bg_img"
-          style={{
-            backgroundImage: `url("${
-
-              // this.props.movie.image
-
-              process.env.PUBLIC_URL +
-              "/assets/images/"
-              + "banner03.jpg"
-              }")`
-          }}
+          style={{ backgroundImage: `url("${"/assets/images/banner03.jpg"}")` }}
           data-background={
-            process.env.PUBLIC_URL +
-            "/assets/images/"
-            + "banner03.jpg"
+            process.env.PUBLIC_URL + "/assets/images/banner03.jpg"
             // + this.props.movie.image
           }
         >
@@ -49,7 +37,7 @@ export default class BannerMovieDetail extends Component {
               <div className="details-banner-thumb">
                 <img
                   src={
-                    // process.env.PUBLIC_URL + 
+                    // process.env.PUBLIC_URL +
                     // "/assets/images/movie/movie03.jpg"
                     this.props.movie.thumbnail
                     // "/assets/images/movie03.jpg"
@@ -58,8 +46,10 @@ export default class BannerMovieDetail extends Component {
                   alt="movie"
                 />
 
-
-                <a onClick={e => this.openInNewTab(this.props.movie.trailerUrl)}
+                <a
+                  onClick={(e) =>
+                    this.openInNewTab(this.props.movie.trailerUrl)
+                  }
                   // href={this.props.movie.trailerUrl || "https://www.youtube.com"}
                   href="#"
                   // target="_blank"
@@ -76,7 +66,9 @@ export default class BannerMovieDetail extends Component {
                 </a>
               </div>
               <div className="details-banner-content offset-lg-3">
-                <h3 style={movieName} className="title">{this.props.movie.name}</h3>
+                <h3 style={movieName} className="title">
+                  {this.props.movie.name}
+                </h3>
                 <div className="tags">
                   {/* <a href="#0">{this.props.movie.language}</a> */}
                   <a href="#0">Tiếng Việt</a>
@@ -90,12 +82,17 @@ export default class BannerMovieDetail extends Component {
                       <i className="fas fa-calendar-alt" />
                       {/* <span>06 Dec, 2020</span> */}
                       <span>
-                        {"Khởi chiếu: " + moment().calendar(this.props.movie.releasedDate)}
+                        {"Khởi chiếu: " +
+                          moment().calendar(this.props.movie.releasedDate)}
                       </span>
                     </div>
                     <div className="item">
                       <i className="far fa-clock" />
-                      <span>{"Thời lượng: " + this.props.movie.durationMin + " phút"}</span>
+                      <span>
+                        {"Thời lượng: " +
+                          this.props.movie.durationMin +
+                          " phút"}
+                      </span>
                     </div>
                   </div>
                   <ul className="social-share">

@@ -104,6 +104,7 @@ export default class Home extends Component {
             <div className="container">
               <div
                 className="search-tab bg_img"
+                style={{ backgroundImage: `url("${"/assets/images/ticket/ticket-bg01.jpg"}")` }}
                 data-background=
                 // { process.env.PUBLIC_URL + 
                 "/assets/images/ticket/ticket-bg01.jpg"

@@ -5,16 +5,11 @@ export default class BannerTicketPlan extends Component {
     return (
       <section
         className="details-banner hero-area bg_img"
-        // style={{backgroundImage: `url("${"/assets/images/banner/banner04.jpg"}")`}}
         style={{
-          backgroundImage: `url("${
-            "/assets/images/banner/" + "banner04.jpg"
-            // this.props.movie.image
-          }")`,
+          backgroundImage: `url("${"/assets/images/banner/banner04.jpg"}")`,
         }}
         data-background={
-          process.env.PUBLIC_URL + "/assets/images/banner/" + "banner04.jpg"
-          // this.props.movie.image
+          process.env.PUBLIC_URL + "/assets/images/banner/banner04.jpg"
         }
       >
         <div className="container">

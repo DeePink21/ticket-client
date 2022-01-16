@@ -82,33 +82,7 @@ export default class TicketOption extends Component {
       // var showtimes = this.state.showtimes;
     });
 
-    // if (showtimes) {
-    // var grouped = this.groupBy(showtimes, showtime => showtime.theaterId);
-    // var data = Object.fromEntries();
-
-    // if (grouped) {
-    //   var theaters = grouped.map((item) => {
-    //     var theater = item;
-    //     theater.data = this.theaterData(theater.id);
-    //     return theater;
-    //   })
-
-    //   console.log(theaters);
-    // }
-    // }
   }
-
-  // theaterData = (theaterId) => {
-  //   TheaterService.getTheaterById(theaterId).then((res) => {
-  // console.log(res.data);
-  // this.setState({
-  //   grouped: {
-  //     name: res.data
-  //   }
-  // });
-  //     return res.data;
-  //   });
-  // }
 
   mappingDropdownList = (data) => {
     if (data) {
@@ -122,15 +96,6 @@ export default class TicketOption extends Component {
       return options;
     }
   };
-
-  // mappingDropdownString = (data) => {
-  //   if (data) {
-  //     var options = data.map((item, i) => {
-  //       return <Dropdown.Item className="" eventKey={item} key={i}>{item}</Dropdown.Item>
-  //     });
-  //     return options
-  //   }
-  // }
 
   handleSelect = (target, e) => {
     console.log(e);

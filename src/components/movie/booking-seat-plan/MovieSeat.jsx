@@ -72,6 +72,7 @@ export default class MovieSeat extends Component {
 
   render() {
     return (
+      this.state.showtime && this.state.seats &&
       <div className="seat-plan-section padding-bottom padding-top">
         <div className="container">
           <div className="screen-area">
@@ -189,6 +190,7 @@ export default class MovieSeat extends Component {
           </div>
           <div
             className="proceed-book bg_img"
+            style={{ backgroundImage: `url("${"/assets/images/movie/movie-bg-proceed.jpg"}")` }}
             data-background="/assets/images/movie/movie-bg-proceed.jpg"
           >
             <div className="proceed-to-book">

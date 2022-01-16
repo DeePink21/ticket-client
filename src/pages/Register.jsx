@@ -10,9 +10,8 @@ export default class Register extends Component {
       isBlocking: false,
       isRedirect: false,
 
-      email: '',
-      password: '',
-
+      email: "",
+      password: "",
     };
     // this.email = this.email.bind(this);
     // this.password = this.password.bind(this);
@@ -28,19 +27,17 @@ export default class Register extends Component {
 
     this.setState({
       isBlocking: value.length > 0,
-      [name]: value
-    })
-
+      [name]: value,
+    });
   }
 
   register(event) {
-
     event.preventDefault();
     // event.target.reset();
     this.setState({
       isBlocking: false,
-      isRedirect: false
-    })
+      isRedirect: false,
+    });
 
     console.log(this.state);
     if (this.state.email) {
@@ -52,12 +49,12 @@ export default class Register extends Component {
         },
         body: JSON.stringify({
           email: this.state.email,
-          password: this.state.password
+          password: this.state.password,
         }),
       })
         .then((Response) => Response.json())
         .then((Result) => {
-          if (Result.Status == "Success") 
+          if (Result.Status == "Success")
             // this.props.history.push("/");
             console.log("nice!");
           else alert("Sorrrrrry !!!! Un-authenticated User !!!!!");
@@ -67,21 +64,22 @@ export default class Register extends Component {
 
   render() {
     if (this.state.isRedirect) {
-      return (
-        <Redirect to="/" />
-      )
+      return <Redirect to="/" />;
     }
     return (
       <div>
         <Prompt
           when={this.state.isBlocking}
-          message={location =>
+          message={(location) =>
             `Are you sure you want to go to ${location.pathname}`
           }
         />
 
         <section
           className="account-section bg_img"
+          style={{
+            backgroundImage: `url("${"/assets/images/account/account-bg.jpg"}")`,
+          }}
           data-background={
             process.env.PUBLIC_URL + "/assets/images/account/account-bg.jpg"
           }

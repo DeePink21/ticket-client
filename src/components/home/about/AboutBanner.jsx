@@ -7,7 +7,8 @@ class AboutBanner extends React.Component {
         {/* ==========Banner-Section========== */}
         <section
           className="main-page-header speaker-banner bg_img"
-          data-background="assets/images/banner/banner07.jpg"
+          style={{ backgroundImage: `url("${"/assets/images/banner/banner07.jpg"}")` }}
+          data-background="/assets/images/banner/banner07.jpg"
         >
           <div className="container">
             <div className="speaker-banner-content">

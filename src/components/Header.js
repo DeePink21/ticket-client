@@ -2,6 +2,43 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
 export default class Header extends Component {
+  constuctor() {
+    this.logout = this.logout.bind(this);
+  }
+
+ logout(e) {
+   e.preventDefault();
+   sessionStorage.removeItem("user");
+   sessionStorage.removeItem("token");
+   
+   this.props.history.push('/login');
+ }
+
+  isLogged() {
+
+    if (true)
+      return (
+        <ul className="menu">
+          <li className="header-button pr-1">
+            <Link to="/user">Thông tin cá nhân</Link>
+          </li>
+          <li >
+            <a href="#0" onClick={e=>this.logout(e)}>Đăng xuất</a>
+            </li>
+          </ul>
+      );
+    else
+      return (
+        <div>
+          <li>
+            <Link to="/register">Đăng ký</Link>
+          </li>
+          <li className="header-button pr-0">
+            <Link to="/login">Đăng nhập</Link>
+          </li>
+        </div>
+      );
+  }
   render() {
     return (
       <header className="header-section">
@@ -12,11 +49,11 @@ export default class Header extends Component {
                 <img src="/assets/images/logo/logo.png" alt="logo" />
               </Link>
             </div>
-            <ul className="menu">
-              <li>
+           
+              {/* <li>
                 <a href="#0">Event</a>
-              </li>
-              <li>
+              </li> */}
+              {/* <li>
                 <a href="#0">Contact</a>
                 <ul className="submenu">
                   <li>
@@ -26,17 +63,13 @@ export default class Header extends Component {
                     <a href="apps-download.html">Apps Download</a>
                   </li>
                 </ul>
-              </li>
-              <li>
+              </li> */}
+              {/* <li>
                 <a href="contact.html">Blogs</a>
-              </li>
-              <li>
-                <Link to="/user">Thông tin cá nhân</Link>
-              </li>
-              <li className="header-button pr-0">
-                <Link to="/login">join us</Link>
-              </li>
-            </ul>
+              </li> */}
+
+              {this.isLogged()}
+            
             <div className="header-bar d-lg-none">
               <span />
               <span />
