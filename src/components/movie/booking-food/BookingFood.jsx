@@ -228,7 +228,7 @@ export default class BookingFood extends Component {
 
   render() {
     return (
-      <div>
+      this.state.foods &&
         <div className="movie-facility padding-bottom padding-top">
           <div className="container">
             <div className="row">
@@ -343,7 +343,7 @@ export default class BookingFood extends Component {
             </div>
           </div>
         </div>
-      </div>
+    
     );
   }
 }
