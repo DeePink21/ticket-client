@@ -58,9 +58,11 @@ export default class ChosenSeatList extends Component {
         }
         return list.substring(0, list.length - 2);
     }
+    
     render() {
         return (
-                <h3>{this.ChosenSeatList()}</h3>      
+                // <h3>{this.ChosenSeatList()}</h3>     
+                <h3>{this.props.bookedSeats}</h3>      
         )
     }
 }
