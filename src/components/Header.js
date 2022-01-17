@@ -1,55 +1,63 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import { Link, withRouter } from "react-router-dom";
 
-class Header extends Component {
-  constructor(props) {
-    super(props);
+function Header() {
+  const [name, setName] = useState(
+    window.sessionStorage.getItem("user")
+      ? JSON.parse(window.sessionStorage.getItem("user")).fullName
+      : ""
+  );
 
-    this.state = {
-      isLogged: false
-    };
-    this.logout = this.logout.bind(this);
-  }
+  const logout = (e) => {
+    // e.preventDefault();
+    sessionStorage.removeItem("user");
+    sessionStorage.removeItem("token");
 
-  componentDidMount = () => {
-    
-  }
+    setName("");
+    // this.props.history.push("/login");
+  };
 
- logout(e) {
-   e.preventDefault();
-   sessionStorage.removeItem("user");
-   sessionStorage.removeItem("token");
-   this.setState({
-    isLogged: false
-   })
-   this.props.history.push('/login');
- }
-
-  isLogged() {
-    if (this.state.isLogged)
+  const isLogged = () => {
+    // let data = [];
+    if (window.sessionStorage.getItem("user"))
       return (
         <ul className="menu">
+          {/* <li>
+            <Link to="/user">{"Xin chào " + name}</Link>
+            <ul className="submenu">
+              <li>
+                <Link to="/user">Thông tin cá nhân</Link>
+              </li>
+              <li>
+                <Link to="/user">Lịch sử đặt vé</Link>
+              </li>
+            </ul>
+          </li> */}
+
           <li className="header-button pr-1">
             <Link to="/user">Thông tin cá nhân</Link>
           </li>
-          <li >
-            <a href="#0" onClick={e=>this.logout(e)}>Đăng xuất</a>
-            </li>
-          </ul>
+          <li>
+            <Link to="/login" onClick={(e) => logout(e)}>
+              Đăng xuất
+            </Link>
+          </li>
+        </ul>
       );
     else
       return (
-        <div>
+        <ul className="menu">
           <li>
             <Link to="/register">Đăng ký</Link>
           </li>
           <li className="header-button pr-0">
             <Link to="/login">Đăng nhập</Link>
           </li>
-        </div>
+        </ul>
       );
-  }
-  render() {
+  };
+
+  if (window.location.pathname === "/login") {
     return (
       <header className="header-section">
         <div className="container">
@@ -59,37 +67,28 @@ class Header extends Component {
                 <img src="/assets/images/logo/logo.png" alt="logo" />
               </Link>
             </div>
-           
-              {/* <li>
-                <a href="#0">Event</a>
-              </li> */}
-              {/* <li>
-                <a href="#0">Contact</a>
-                <ul className="submenu">
-                  <li>
-                    <a href="about.html">About Us</a>
-                  </li>
-                  <li>
-                    <a href="apps-download.html">Apps Download</a>
-                  </li>
-                </ul>
-              </li> */}
-              {/* <li>
-                <a href="contact.html">Blogs</a>
-              </li> */}
 
-              {this.isLogged()}
-            
-            <div className="header-bar d-lg-none">
-              <span />
-              <span />
-              <span />
-            </div>
+            <div className="header-bar d-lg-none"></div>
           </div>
         </div>
       </header>
-    );
-  }
+    )} else return (
+    <header className="header-section">
+      <div className="container">
+        <div className="header-wrapper">
+          <div className="logo">
+            <Link to="/">
+              <img src="/assets/images/logo/logo.png" alt="logo" />
+            </Link>
+          </div>
+
+          {isLogged()}
+
+          <div className="header-bar d-lg-none"></div>
+        </div>
+      </div>
+    </header>
+  );
 }
 
 export default withRouter(Header);

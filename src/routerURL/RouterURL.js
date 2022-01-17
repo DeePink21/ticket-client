@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Route, Switch } from "react-router";
+import Footer from "../components/Footer";
+import Header from "../components/Header";
 import Home from "../components/home/Home";
 import BookingCheckout from "../components/movie/booking-checkout/BookingCheckout";
 import BookingComplete from "../components/movie/booking-checkout/BookingComplete";
@@ -15,10 +17,11 @@ import Register from "../pages/Register";
 // import Register from "../pages/Register";
 
 export default class RouterURL extends Component {
-  
   render() {
     return (
       <div className="container">
+        <Header />
+
         <Switch>
           <Route path="/movie-detail/:id" component={MovieDetail} />
           <Route path="/choose-theater/:id" component={TicketPlan} />
@@ -26,12 +29,14 @@ export default class RouterURL extends Component {
           <Route path="/choose-foods/:id" component={BookingFood} />
           <Route path="/checkout" component={BookingCheckout} />
           <Route path="/book-result" component={BookingComplete} />
-          <Route path="/login" component={Login}/>
           <Route path="/register" component={Register} />
-          <Route path="/user" component={UserDetail}/>
+          <Route path="/user" component={UserDetail} />
+          <Route path="/login" component={Login} />
           <Route expact path="/" component={Home} />
           <Route component={Home} />
         </Switch>
+
+        <Footer />
       </div>
     );
   }

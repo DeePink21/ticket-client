@@ -13,8 +13,7 @@ const port = process.env.PORT || 4000;
 const userData = {
   id: "1",
   password: "123456",
-  firstName: "Võ",
-  lastName: "Trường",
+  fullName: "Võ Trường",
   photo: "",
   email: "truongvo@gmail.com",
   privileges: ["member"]

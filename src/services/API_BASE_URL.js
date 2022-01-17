@@ -1,10 +1,10 @@
 // for testing
-// export const baseurl = "http://localhost:3004/";
-// export const authenticate = "http://localhost:3000/authenticate";
+export const baseurl = "http://localhost:3004/";
+export const authenticate = "http://localhost:3000/authenticate";
 
 // for api
-export const baseurl = "http://localhost:8080/api/v1/";
-export const authenticate = baseurl + "authenticate";
+// export const baseurl = "http://localhost:8080/api/v1/";
+// export const authenticate = baseurl + "authenticate";
 
 export const reviews = baseurl + "reviews";
 export const movies = baseurl + "movies";
