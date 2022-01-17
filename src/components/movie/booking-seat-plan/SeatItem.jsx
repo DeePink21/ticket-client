@@ -24,7 +24,7 @@ export default class SeatItem extends Component {
             return "";
         }
 
-        return this.props.seat.tier + this.props.seat.number;
+        return this.props.seat.tier + this.props.seat.numbers;
 
 
         // var name = "";
