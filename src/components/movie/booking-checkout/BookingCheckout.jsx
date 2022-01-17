@@ -54,24 +54,6 @@ export default class BookingCheckout extends Component {
 
   completePayment = async () => {
     await this.delay(1000);
-    // var d = new Date().toJSON().replace('T', ' ');
-    // d = d.slice(0, d.length - 5);
-    // var totalAmount = this.getTotalPrice() * (1 - this.state.offer.percentage) * 1.1;
-    // var order = {
-    //   totalAmount: parseInt(totalAmount),
-    //   tax: this.getTotalPrice() * (1 - this.state.offer.percentage) * 0.1,
-    //   showTimesDetailId: this.state.showtime.id,
-    //   userId: this.state.userId,
-    //   createDate: d,
-    //   concessionId: this.state.concession,
-    //   seats: this.state.seats,
-    //   room: this.state.showtime.roomId,
-    //   isOnline: true
-    // }
-
-    // OrderService.orderOnline(order).then(res => {
-    //   console.log(res);
-    // })
 
     localStorage.removeItem("phone");
     if (this.state.phone) {
