@@ -205,18 +205,23 @@ export default class BookingFood extends Component {
         console.log(order);
         // gọi api order
         OrderService.orderOnline(order).then((res) => {
-          if (res.data.id > 0)
+          if (res.data.id > 0) {
           console.log("TẠO ORDER THÀNH CÔNG!");
-          this.setState({
-            orderId: res.data.id,
-            order: res.data,
-            // order: order
-          });
+
+          OrderService.getOrderById(res.data.id).then(res => {
+            this.setState({
+              orderId: res.data.id,
+              order: res.data,
+              // order: order
+            });
+
+            localStorage.setItem("order", JSON.stringify(res.data));
   
-          localStorage.setItem("order", JSON.stringify(res.data));
-  
-          console.log("show order: ");
-          console.log(res.data);
+            console.log("show order: ");
+            console.log(res.data);
+          })
+
+        }
         });
   
         // console.log(user);

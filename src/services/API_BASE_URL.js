@@ -19,6 +19,7 @@ export const showTimesAnonymous = baseurl + "showTimesAnonymous";
 export const showTimeAnonymous = baseurl + "showTimeAnonymous";
 export const seatRoomAnonymous = baseurl + "seatsAnonymous";
 export const ordersAnonymous = baseurl + "ordersAnonymous";
+export const orders = baseurl + "orders";
 export const checkPromoCode = baseurl + "check-promoCode";
 export const offers = baseurl + "offers";
 export const payments = baseurl + "payments";

@@ -13,6 +13,10 @@ class OrderService {
   getOrdersByUserId = (userId) => {
     return axios.get(`${api.ordersUser}?user_id=${userId}`)
   }
+
+  getOrderById=(orderId) => {
+    return axios.get(`${api.orders}/${orderId}`)
+  }
 }
 
 export default new OrderService();

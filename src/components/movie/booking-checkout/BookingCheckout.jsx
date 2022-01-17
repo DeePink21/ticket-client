@@ -129,6 +129,7 @@ export default class BookingCheckout extends Component {
       ticketPrice: parseInt(localStorage.ticketPrice),
       seats: JSON.parse(localStorage.seats),
       bookedSeats: JSON.parse(localStorage.bookedSeats),
+      order: JSON.parse(localStorage.order),
       // user: JSON.parse(localStorage.user)
     });
 
@@ -332,33 +333,33 @@ export default class BookingCheckout extends Component {
     ).then((res) => {
       console.log(res.data);
       if (res.data) {
-        OfferService.getOfferById(res.data.id).then((res) => {
-          localStorage.setItem("offer", JSON.stringify(res.data[0]));
-          this.setState({
-            offer: res.data[0],
-          });
+        // OfferService.getOfferById(res.data.id).then((res) => {
+        //   localStorage.setItem("offer", JSON.stringify(res.data[0]));
+        //   this.setState({
+        //     offer: res.data[0],
+        //   });
 
-          // update total amount and tax
-          // create order object
-          let totalAmount =
-            this.getTotalPrice() * (1 - res.data[0].percentage) * 1.1;
-          let newData = {
-            totalAmount: totalAmount,
-            tax: totalAmount * 0.1,
-          };
-          let order = { ...this.state.order, ...newData };
+        //   // update total amount and tax
+        //   // create order object
+        //   let totalAmount =
+        //     this.getTotalPrice() * (1 - res.data[0].percentage) * 1.1;
+        //   let newData = {
+        //     totalAmount: totalAmount,
+        //     tax: totalAmount * 0.1,
+        //   };
+        //   let order = { ...this.state.order, ...newData };
 
-          OrderService.updateOrder(order).then((res) => {
-            console.log(res.data);
-            this.setState({
-              orderId: res.data.id,
-              order: res.data,
-              // order: order
-            });
+        //   OrderService.updateOrder(order).then((res) => {
+        //     console.log(res.data);
+        //     this.setState({
+        //       orderId: res.data.id,
+        //       order: res.data,
+        //       // order: order
+        //     });
 
-            localStorage.setItem("order", JSON.stringify(res.data));
-          });
-        });
+        //     localStorage.setItem("order", JSON.stringify(res.data));
+        //   });
+        // });
       } else {
         alert("Mã giảm giá không hợp lệ.\nVui lòng thử lại!\n Cảm ơn");
         return;
@@ -553,7 +554,7 @@ export default class BookingCheckout extends Component {
                 <ul>
                   <li>
                     <h6 className="subtitle">
-                      {this.state.movie.name}{" "}
+                      {this.state.movie.name}
                       <span>{this.getNumOfTickets() + " vé"}</span>
                     </h6>
                     <div className="info">
