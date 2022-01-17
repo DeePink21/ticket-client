@@ -37,19 +37,6 @@ export default class MovieSeat extends Component {
     });
   }
 
-  handleCallback = (number, isBooked) => {
-    let seatStatus = this.state.bookedSeats;
-    if (isBooked) {
-      if (!this.state.bookedSeats.includes(number)) {
-        seatStatus.push(number);
-        this.setState({ bookedSeats: seatStatus });
-      }
-    } else {
-      seatStatus = seatStatus.filter((x) => x !== number);
-      this.setState({ bookedSeats: seatStatus });
-    }
-  };
-
   handleCallback = (seat, isBooked) => {
     let seatStatus = this.state.bookedSeats;
     if (isBooked) {

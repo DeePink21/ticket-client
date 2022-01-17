@@ -18,7 +18,7 @@ export default class ScheduleItem extends Component {
   }
 
   getTime = () => {
-    var time = new Date(this.props.showtime.timeStart);
+    let time = new Date(this.props.showtime.timeStart);
     return time.getHours() + ":" + time.getMinutes();
   };
 
@@ -47,7 +47,7 @@ export default class ScheduleItem extends Component {
 
   render() {
     if (this.props.showtime) {
-      if (this.props.showtime.status === "expired") {
+      if (this.props.showtime.status === "Expire") {
         return (
           <a href="#0" onClick={e => this.expiredShowtime(e)}>
             <div className="item-block">{this.getTime()}</div>
@@ -58,10 +58,10 @@ export default class ScheduleItem extends Component {
 
       return (
         <Link to={"/choose-seats/" + this.props.showtime.id}>
-      
+
           <div className="item">{this.getTime()}</div>
           <div className="">{this.getDate2()}</div>
-     
+
         </Link>
       );
     } else {

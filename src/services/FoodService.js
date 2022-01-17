@@ -3,7 +3,7 @@ import * as api from "./API_BASE_URL";
 
 class FoodService {
   getFoods = () => {
-    return axios.get(`${api.services}`);
+    return axios.get(api.baseurl + "concessions?category_id=1");
   };
 }
 

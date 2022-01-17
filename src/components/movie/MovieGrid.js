@@ -22,7 +22,7 @@ export default class MovieGrid extends Component {
       })
       .then(() => {
         if (this.props.searchTitle !== "" && this.state.allMovies) {
-          var movieData = this.state.allMovies.filter((movie) =>
+          let movieData = this.state.allMovies.filter((movie) =>
             movie.name
               .toLowerCase()
               .includes(
@@ -43,7 +43,7 @@ export default class MovieGrid extends Component {
     //   })
     //   .then(() => {
     //     if (this.props.searchTitle !== "" && this.state.allMovies) {
-    //       var movieData = this.state.allMovies.filter((movie) =>
+    //       let movieData = this.state.allMovies.filter((movie) =>
     //         movie.name.includes(this.removeAccents(this.props.searchTitle))
     //       );
     //       this.setState({ movies: movieData });
@@ -62,7 +62,7 @@ export default class MovieGrid extends Component {
       this.props.searchTitle !== newProps.searchTitle &&
       this.props.searchTitle !== ""
     ) {
-      var movieData = this.state.allMovies.filter((movie) =>
+      let movieData = this.state.allMovies.filter((movie) =>
         movie.name.includes(this.removeAccents(newProps.searchTitle))
       );
       this.setState({ movies: movieData });

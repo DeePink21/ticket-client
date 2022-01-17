@@ -12,7 +12,7 @@ export default class TicketPlan extends Component {
     this.state = {
       id: this.props.match.params.id,
       movie: {},
-      showtimes: [{}]
+      showtimes: []
     };
     console.log(
       this.state.id);
@@ -25,8 +25,8 @@ export default class TicketPlan extends Component {
     });
 
     ShowtimeService.getShowTimesByMovieId(this.state.id).then((res) => {
-      // this.setState({ showtimes: res.data.content });
-      this.setState({ showtimes: res.data });
+      this.setState({ showtimes: res.data.content });
+      // this.setState({ showtimes: res.data });
       console.log(this.state);
     })
   }

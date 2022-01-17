@@ -20,7 +20,7 @@ export default class ReviewSection extends Component {
 
   componentDidMount() {
     if (window.sessionStorage.getItem("user")) {
-      var user = JSON.parse(window.sessionStorage.getItem("user"));
+      let user = JSON.parse(window.sessionStorage.getItem("user"));
       console.log(user);
       this.setState({
         user: user,
@@ -57,7 +57,7 @@ export default class ReviewSection extends Component {
 
   mappingData() {
     if (this.state.reviews) {
-      var reviewList = this.state.reviews.map((review, i) => {
+      let reviewList = this.state.reviews.map((review, i) => {
         return <ReviewItem key={i} review={review} />;
       });
       return reviewList;
@@ -120,7 +120,7 @@ export default class ReviewSection extends Component {
 
   postReview(e) {
     e.preventDefault();
-    var d = new Date().toJSON().replace("T", " ");
+    let d = new Date().toJSON().replace("T", " ");
     d = d.slice(0, d.length - 5);
     console.log(d);
     let review = {
