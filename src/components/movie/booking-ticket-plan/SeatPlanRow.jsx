@@ -26,7 +26,7 @@ export default class SeatPlanRow extends Component {
 
     mappingScheduleData = () => {
         if (this.props.showtime && this.props.showtime[1]) {
-            var schedules = this.props.showtime[1].map((item, i) => {
+            let schedules = this.props.showtime[1].map((item, i) => {
               console.log(item);
               return <ScheduleItem key={i} showtime={item}></ScheduleItem>;
             });

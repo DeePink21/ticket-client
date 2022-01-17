@@ -36,7 +36,7 @@ export default class MovieDetailsSection extends Component {
 
   mappingDataPhoto = () => {
     if (this.props.movie.photo_urls) {
-      var photoList = this.props.movie.photo_urls.map((item, i) => {
+      let photoList = this.props.movie.photo_urls.map((item, i) => {
         return <MoviePhotoItem key={i} photo={item}></MoviePhotoItem>;
       });
       return photoList;

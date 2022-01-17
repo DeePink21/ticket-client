@@ -7,7 +7,7 @@ class ShowtimeService {
   };
 
   getShowTimeById = (showtimeId) => {
-    return axios.get(`${api.showTimesAnonymous}/${showtimeId}`);
+    return axios.get(`${api.showTimeAnonymous}/${showtimeId}`);
   };
 }
 

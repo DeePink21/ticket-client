@@ -10,8 +10,8 @@ class SeatService {
     return axios.get(`${api.seatRoomAnonymous}?showTimesId=${showtimeId}`);
   };
 
-  getSeatsByRoomIdandShowtimeId = (roomId, showtimeId) => {
-    return axios.get(`${api.seatRoomAnonymous}?roomId=${roomId}&showTimesId=${showtimeId}`);
+  getSeatsByRoomIdandShowtimeIdandTheaterId = (roomId, showtimeId, theaterId) => {
+    return axios.get(`${api.seatRoomAnonymous}?room=${roomId}&showTimesId=${showtimeId}&theater=${theaterId}`);
   };
 }
 

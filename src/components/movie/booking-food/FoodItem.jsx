@@ -33,12 +33,12 @@ export default class FoodItem extends Component {
         <div className="grid-inner">
           <div className="grid-thumb">
             <img
-              src={"/assets/images/movie/popcorn/" + this.props.food.thumbnail}
+              src={this.props.food.image ? this.props.food.image : "/assets/images/movie/popcorn/pop1.png"}
               alt="movie/popcorn"
             />
             <div className="offer-tag">{this.formatCurrency(this.props.food.price)}</div>
             <div className="offer-remainder">
-              <h6 className="o-title mt-0">24%</h6>
+              <h6 className="o-title mt-0">20%</h6>
               <span>off</span>
             </div>
           </div>

@@ -39,7 +39,7 @@ export default class MovieGridItem extends Component {
   };
 
   getDate2 = () => {
-    var time = this.props.movie.releasedDate;
+    let time = this.props.movie.releasedDate;
     // return time.getDate() + "/" + time.getMonth() + 1 + "/" + time.getFullYear();
     return moment(time, "YYYY-MM-DD").calendar();
   };

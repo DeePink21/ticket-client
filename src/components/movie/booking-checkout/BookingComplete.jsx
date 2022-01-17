@@ -49,7 +49,7 @@ export default class BookingComplete extends Component {
     componentDidMount() {
         //   this.getPrice();
         // })
-        for (var i = 0; i < localStorage.length; i++) {
+        for (let i = 0; i < localStorage.length; i++) {
             console.log(JSON.parse(localStorage.getItem(localStorage.key(i))));
         }
 
@@ -78,7 +78,7 @@ export default class BookingComplete extends Component {
         })
 
         if (window.sessionStorage.getItem("user")) {
-            var user = JSON.parse(window.sessionStorage.getItem("user"));
+            let user = JSON.parse(window.sessionStorage.getItem("user"));
             this.setState({
                 user: user,
                 // userId: user.id,
@@ -90,9 +90,9 @@ export default class BookingComplete extends Component {
             console.log(user);
         }
 
-        // var randomId = Math.floor(Math.random() * 9999);
-        var randomId = 8888;
-        var temp = this.state.order;
+        // let randomId = Math.floor(Math.random() * 9999);
+        let randomId = 8888;
+        let temp = this.state.order;
         temp.id = randomId;
         this.setState({
             order: temp,
@@ -105,12 +105,12 @@ export default class BookingComplete extends Component {
     }
 
     formatCurrency(n) {
-        var temp = n.toFixed(1).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+        let temp = n.toFixed(1).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
         return temp.slice(0, temp.length - 2) + ' vnd';
     }
 
     // getPrice() {
-    //     var price = this.getNumOfTickets() * this.state.showtime.price;
+    //     let price = this.getNumOfTickets() * this.state.showtime.price;
     //     this.setState({
     //         ticketPrice: price
     //     })
@@ -118,32 +118,32 @@ export default class BookingComplete extends Component {
     // }
 
     getTime = () => {
-        var time = new Date(this.state.showtime.timeStart);
+        let time = new Date(this.state.showtime.timeStart);
         return time.getHours() + ":" + time.getMinutes();
     }
 
     getDate = () => {
-        var time = new Date(this.state.showtime.timeStart);
+        let time = new Date(this.state.showtime.timeStart);
         // return time.getDate() + "/" + time.getMonth() + 1 + "/" + time.getFullYear();
         return moment(time, "YYYY-MM-DD HH:mm:ss").fromNow();
     }
 
     getDate2 = () => {
-        var time = new Date(this.state.showtime.timeStart);
+        let time = new Date(this.state.showtime.timeStart);
         // return time.getDate() + "/" + time.getMonth() + 1 + "/" + time.getFullYear();
         return moment(time, "YYYY-MM-DD HH:mm:ss").calendar();
     }
 
     getDetailDay = () => {
-        var time = new Date(this.state.showtime.timeStart);
+        let time = new Date(this.state.showtime.timeStart);
         console.log(time);
         return moment(time, "YYYY-MM-DD HH:mm:ss").format('dddd') + ' - ' + this.getTime() + ' - ' + this.getDate2();
     }
 
     getFoodsPrice() {
         if (this.state.concession) {
-            var sum = this.state.concession.reduce((price, foodId) => {
-                var food = this.state.foods.find(food => food.id === foodId);
+            let sum = this.state.concession.reduce((price, foodId) => {
+                let food = this.state.foods.find(food => food.id === foodId);
                 return price += food.price;
             }, 0)
 
@@ -158,8 +158,8 @@ export default class BookingComplete extends Component {
     mappingChosenFoodsData() {
         if (this.state.concession) {
 
-            var list = this.state.concession.map((foodId, i) => {
-                var food = this.state.foods.find(food => food.id === foodId);
+            let list = this.state.concession.map((foodId, i) => {
+                let food = this.state.foods.find(food => food.id === foodId);
 
                 return (
                     <span className="info" key={i}>
@@ -174,9 +174,9 @@ export default class BookingComplete extends Component {
     }
 
     parseJwt(token) {
-        var base64Url = token.split('.')[1];
-        var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-        var jsonPayload = decodeURIComponent(atob(base64).split('').map(function (c) {
+        let base64Url = token.split('.')[1];
+        let base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+        let jsonPayload = decodeURIComponent(atob(base64).split('').map(function (c) {
             return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
         }).join(''));
 

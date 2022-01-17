@@ -31,8 +31,7 @@ export default class BookingCheckout extends Component {
       isLogged: false,
       isRedirect: false,
       phone: "",
-      firstName: "",
-      lastName: "",
+     
       email: "",
       promoCode: "",
       offer: {
@@ -82,7 +81,7 @@ export default class BookingCheckout extends Component {
     // this.setState({isRedirect: true})
 
     // tạo object payment
-    var payment = {
+    let payment = {
       numberMember: null,
       amount: this.state.order.totalAmount,
       status: "",
@@ -114,9 +113,7 @@ export default class BookingCheckout extends Component {
   };
 
   componentDidMount() {
-    //   this.getPrice();
-    // })
-    for (var i = 0; i < localStorage.length; i++) {
+    for (let i = 0; i < localStorage.length; i++) {
       console.log(JSON.parse(localStorage.getItem(localStorage.key(i))));
     }
 
@@ -128,61 +125,78 @@ export default class BookingCheckout extends Component {
       theater: JSON.parse(localStorage.theater),
       concession: JSON.parse(localStorage.concession),
       foodPrice: JSON.parse(localStorage.foodPrice),
-      ticketPrice: JSON.parse(localStorage.ticketPrice),
+      // ticketPrice: JSON.parse(localStorage.ticketPrice),
+      ticketPrice: parseInt(localStorage.ticketPrice),
       seats: JSON.parse(localStorage.seats),
+      bookedSeats: JSON.parse(localStorage.bookedSeats),
+      order: JSON.parse(localStorage.order),
       // user: JSON.parse(localStorage.user)
     });
 
     if (window.sessionStorage.getItem("user")) {
-      var user = JSON.parse(window.sessionStorage.getItem("user"));
+      console.log(window.sessionStorage.getItem("user"));
+      let user = JSON.parse(window.sessionStorage.getItem("user"));
       this.setState({
         user: user,
         userId: user.id,
-        firstName: user.firstName,
-        lastName: user.lastName,
+        fullName: user.fullName,
         email: user.email,
         phone: "01223695542",
         isLogged: true,
       });
-
-      //tạo object order
-      var d = new Date().toJSON().replace("T", " ");
-      d = d.slice(0, d.length - 5);
-      var totalAmount =
-        this.getTotalPrice() * (1 - this.state.offer.percentage) * 1.1;
-      var order = {
-        totalAmount: parseInt(totalAmount),
-        tax: this.getTotalPrice() * (1 - this.state.offer.percentage) * 0.1,
-        showTimesDetailId: this.state.showtime.id,
-        userId: user.id,
-        createDate: d,
-        note: "",
-        typeUser: false,
-        status: "",
-        creation: null,
-        concessionId: JSON.parse(localStorage.concession),
-        seats: JSON.parse(localStorage.seats),
-        room: this.state.showtime.roomId,
-        isOnline: true,
-      };
-
-      console.log(order);
-      // gọi api order
-      OrderService.orderOnline(order).then((res) => {
-        this.setState({
-          orderId: res.data.id,
-          order: res.data,
-          // order: order
-        });
-
-        localStorage.setItem("order", JSON.stringify(res.data));
-
-        console.log("show order: ");
-        console.log(res.data);
-      });
-
-      // console.log(user);
     }
+
+    // if (window.sessionStorage.getItem("user")) {
+    //   console.log(window.sessionStorage.getItem("user"));
+    //   let user = JSON.parse(window.sessionStorage.getItem("user"));
+    //   this.setState({
+    //     user: user,
+    //     userId: user.id,
+    //     firstName: user.fullName,
+    //     lastName: user.lastName,
+    //     email: user.email,
+    //     phone: "01223695542",
+    //     isLogged: true,
+    //   });
+
+    //   //tạo object order
+    //   let d = new Date().toJSON().replace("T", " ");
+    //   d = d.slice(0, d.length - 5);
+    //   let totalAmount =
+    //     this.getTotalPrice() * (1 - this.state.offer.percentage) * 1.1;
+    //   let order = {
+    //     totalAmount: parseInt(totalAmount),
+    //     tax: this.getTotalPrice() * (1 - this.state.offer.percentage) * 0.1,
+    //     showTimesDetailId: JSON.parse(localStorage.showtime).id,
+    //     userId: user.id,
+    //     createDate: d,
+    //     note: "",
+    //     typeUser: false,
+    //     status: "",
+    //     creation: null,
+    //     concessionId: JSON.parse(localStorage.concession),
+    //     seats: JSON.parse(localStorage.bookedSeats),
+    //     room: JSON.parse(localStorage.showtime).roomId,
+    //     isOnline: true,
+    //   };
+
+    //   console.log(order);
+    //   // gọi api order
+    //   OrderService.orderOnline(order).then((res) => {
+    //     this.setState({
+    //       orderId: res.data.id,
+    //       order: res.data,
+    //       // order: order
+    //     });
+
+    //     localStorage.setItem("order", JSON.stringify(res.data));
+
+    //     console.log("show order: ");
+    //     console.log(res.data);
+    //   });
+
+    //   // console.log(user);
+    // }
   }
 
   getNumOfTickets() {
@@ -190,37 +204,29 @@ export default class BookingCheckout extends Component {
   }
 
   formatCurrency(n) {
-    var temp = n.toFixed(1).replace(/(\d)(?=(\d{3})+\.)/g, "$1,");
+    let temp = n.toFixed(1).replace(/(\d)(?=(\d{3})+\.)/g, "$1,");
     return temp.slice(0, temp.length - 2) + " vnd";
   }
 
-  getPrice() {
-    var price = this.getNumOfTickets() * this.state.showtime.price;
-    this.setState({
-      ticketPrice: price,
-    });
-    return price;
-  }
-
   getTime = () => {
-    var time = new Date(this.state.showtime.timeStart);
+    let time = new Date(this.state.showtime.timeStart);
     return time.getHours() + ":" + time.getMinutes();
   };
 
   getDate = () => {
-    var time = new Date(this.state.showtime.timeStart);
+    let time = new Date(this.state.showtime.timeStart);
     // return time.getDate() + "/" + time.getMonth() + 1 + "/" + time.getFullYear();
     return moment(time, "YYYY-MM-DD HH:mm:ss").fromNow();
   };
 
   getDate2 = () => {
-    var time = new Date(this.state.showtime.timeStart);
+    let time = new Date(this.state.showtime.timeStart);
     // return time.getDate() + "/" + time.getMonth() + 1 + "/" + time.getFullYear();
     return moment(time, "YYYY-MM-DD HH:mm:ss").calendar();
   };
 
   getDetailDay = () => {
-    var time = new Date(this.state.showtime.timeStart);
+    let time = new Date(this.state.showtime.timeStart);
     console.log(time);
     return (
       moment(time, "YYYY-MM-DD HH:mm:ss").format("dddd") +
@@ -233,8 +239,8 @@ export default class BookingCheckout extends Component {
 
   getFoodsPrice() {
     if (this.state.concession) {
-      var sum = this.state.concession.reduce((price, foodId) => {
-        var food = this.state.foods.find((food) => food.id === foodId);
+      let sum = this.state.concession.reduce((price, foodId) => {
+        let food = this.state.foods.find((food) => food.id === foodId);
         return (price += food.price);
       }, 0);
 
@@ -246,14 +252,14 @@ export default class BookingCheckout extends Component {
     return (
       parseInt(JSON.parse(localStorage.foodPrice)) +
       // this.getFoodsPrice()
-      parseInt(JSON.parse(localStorage.ticketPrice))
+      parseInt(localStorage.ticketPrice)
     );
   }
 
   mappingChosenFoodsData() {
     if (this.state.concession) {
-      var list = this.state.concession.map((foodId, i) => {
-        var food = this.state.foods.find((food) => food.id === foodId);
+      let list = this.state.concession.map((foodId, i) => {
+        let food = this.state.foods.find((food) => food.id === foodId);
 
         return (
           <span className="info" key={i}>
@@ -327,32 +333,33 @@ export default class BookingCheckout extends Component {
     ).then((res) => {
       console.log(res.data);
       if (res.data) {
-        OfferService.getOfferById(res.data.id).then((res) => {
-          localStorage.setItem("offer", JSON.stringify(res.data[0]));
-          this.setState({
-            offer: res.data[0],
-          });
+        // OfferService.getOfferById(res.data.id).then((res) => {
+        //   localStorage.setItem("offer", JSON.stringify(res.data[0]));
+        //   this.setState({
+        //     offer: res.data[0],
+        //   });
 
-          // update total amount and tax
-          // create order object
-          var totalAmount =
-            this.getTotalPrice() * (1 - res.data[0].percentage) * 1.1;
-          var newData = {
-            totalAmount: totalAmount,
-            tax: totalAmount * 0.1,
-          };
-          var order = { ...this.state.order, ...newData };
+        //   // update total amount and tax
+        //   // create order object
+        //   let totalAmount =
+        //     this.getTotalPrice() * (1 - res.data[0].percentage) * 1.1;
+        //   let newData = {
+        //     totalAmount: totalAmount,
+        //     tax: totalAmount * 0.1,
+        //   };
+        //   let order = { ...this.state.order, ...newData };
 
-          OrderService.updateOrder(order).then((res) => {
-            this.setState({
-              orderId: res.data.id,
-              order: res.data,
-              // order: order
-            });
+        //   OrderService.updateOrder(order).then((res) => {
+        //     console.log(res.data);
+        //     this.setState({
+        //       orderId: res.data.id,
+        //       order: res.data,
+        //       // order: order
+        //     });
 
-            localStorage.setItem("order", JSON.stringify(res.data));
-          });
-        });
+        //     localStorage.setItem("order", JSON.stringify(res.data));
+        //   });
+        // });
       } else {
         alert("Mã giảm giá không hợp lệ.\nVui lòng thử lại!\n Cảm ơn");
         return;
@@ -378,20 +385,10 @@ export default class BookingCheckout extends Component {
                     <input
                       type="text"
                       placeholder="Họ "
-                      value={this.state.firstName}
+                      value={this.state.fullName}
                       onChange={(e) => this.isInputChange(e)}
-                      name="firstName"
-                      id="firstName"
-                    />
-                  </div>
-                  <div className="form-group">
-                    <input
-                      type="text"
-                      placeholder="Tên "
-                      value={this.state.lastName}
-                      onChange={(e) => this.isInputChange(e)}
-                      name="lastName"
-                      id="lastName"
+                      name="fullName"
+                      id="fullName"
                     />
                   </div>
                   <div className="form-group">
@@ -557,14 +554,14 @@ export default class BookingCheckout extends Component {
                 <ul>
                   <li>
                     <h6 className="subtitle">
-                      {this.state.movie.name}{" "}
+                      {this.state.movie.name}
                       <span>{this.getNumOfTickets() + " vé"}</span>
                     </h6>
                     <div className="info">
                       <span> Tiếng Việt - 2D</span>
-                      <span>
-                        <ChosenSeatList bookedSeats={this.state.seats} />{" "}
-                      </span>
+                      <h3>
+                        <ChosenSeatList bookedSeats={this.state.seats} />
+                      </h3>
                     </div>
                   </li>
                   <li>

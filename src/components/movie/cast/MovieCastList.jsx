@@ -14,7 +14,7 @@ export default class MovieCastList extends Component {
   }
 
   mappingData = () => {
-    var casts = [
+    let casts = [
       {
         name: "Jin Aketagawa",
         profile: "/assets/images/cast/cast01.jpg",
@@ -48,7 +48,7 @@ export default class MovieCastList extends Component {
     ]
     // if (this.props.casts) 
     // {
-      var castList = 
+      let castList = 
       // this.props.
       casts.map((cast, i) => {
         return <MovieCastItem key={i} cast={cast}></MovieCastItem>;

@@ -65,8 +65,10 @@ export default class ShowtimeTable extends Component {
   };
 
   render() {
+    console.log(this.props.showtimes);
+
     return (
-      <div className="ticket-plan-section padding-bottom padding-top">
+      this.state.data && <div className="ticket-plan-section padding-bottom padding-top">
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-lg-9 mb-5 mb-lg-0">

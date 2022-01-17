@@ -1,22 +1,32 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 
-export default class Header extends Component {
-  constuctor() {
+class Header extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      isLogged: false
+    };
     this.logout = this.logout.bind(this);
+  }
+
+  componentDidMount = () => {
+    
   }
 
  logout(e) {
    e.preventDefault();
    sessionStorage.removeItem("user");
    sessionStorage.removeItem("token");
-   
+   this.setState({
+    isLogged: false
+   })
    this.props.history.push('/login');
  }
 
   isLogged() {
-
-    if (true)
+    if (this.state.isLogged)
       return (
         <ul className="menu">
           <li className="header-button pr-1">
@@ -81,3 +91,5 @@ export default class Header extends Component {
     );
   }
 }
+
+export default withRouter(Header);
