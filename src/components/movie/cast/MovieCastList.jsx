@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import MovieCastItem from "./MovieCastItem";
-import OwlCarousel from 'react-owl-carousel';
-import 'owl.carousel/dist/assets/owl.carousel.css';
-import 'owl.carousel/dist/assets/owl.theme.default.css';
+import OwlCarousel from "react-owl-carousel";
+import "owl.carousel/dist/assets/owl.carousel.css";
+import "owl.carousel/dist/assets/owl.theme.default.css";
 
 export default class MovieCastList extends Component {
   constructor(props) {
@@ -18,43 +18,43 @@ export default class MovieCastList extends Component {
       {
         name: "Jin Aketagawa",
         profile: "/assets/images/cast/cast01.jpg",
-        role: "director"
+        role: "director",
       },
       {
         name: "abc",
         profile: "/assets/images/cast/cast02.jpg",
-        role: "main mc"
+        role: "main mc",
       },
       {
         name: "abc",
         profile: "/assets/images/cast/cast03.jpg",
-        role: "main mc"
+        role: "main mc",
       },
       {
         name: "abc",
         profile: "/assets/images/cast/cast04.jpg",
-        role: "supporting"
+        role: "supporting",
       },
       {
         name: "abc",
         profile: "/assets/images/cast/cast05.jpg",
-        role: "supporting"
+        role: "supporting",
       },
       {
         name: "abc",
         profile: "/assets/images/cast/cast06.jpg",
-        role: "supporting"
-      }
-    ]
-    // if (this.props.casts) 
+        role: "supporting",
+      },
+    ];
+    // if (this.props.casts)
     // {
-      let castList = 
+    let castList =
       // this.props.
       casts.map((cast, i) => {
         return <MovieCastItem key={i} cast={cast}></MovieCastItem>;
       });
 
-      return castList;
+    return castList;
     // }
   };
 
@@ -136,8 +136,7 @@ export default class MovieCastList extends Component {
           {this.mappingData()}
         </div> */}
         {
-        // this.props.casts && 
-        (
+          // this.props.casts &&
           <OwlCarousel
             className="casting-slider"
             items={3}
@@ -147,7 +146,6 @@ export default class MovieCastList extends Component {
           >
             {this.mappingData()}
           </OwlCarousel>
-        )
         }
       </div>
     );

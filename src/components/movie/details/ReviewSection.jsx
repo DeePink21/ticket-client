@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import ReviewService from "../../../services/ReviewService";
 import ReviewItem from "./ReviewItem";
 import { Link } from "react-router-dom";
-import { compareDesc, parseJSON } from 'date-fns'
+import { compareDesc, parseJSON } from "date-fns";
 
 export default class ReviewSection extends Component {
   constructor(props) {
@@ -129,13 +129,13 @@ export default class ReviewSection extends Component {
       createdBy: this.state.user.firstName + " " + this.state.user.lastName,
       createdAt: d,
     };
-    ReviewService.postReview(review).then(res => {
+    ReviewService.postReview(review).then((res) => {
       // let temp = [...this.state.reviews, review];
       // temp = temp.sort(compareDesc)
       this.setState({
-        reviews: [...this.state.reviews, review]
-      })
-    })
+        reviews: [...this.state.reviews, review],
+      });
+    });
   }
 
   isShowMore() {

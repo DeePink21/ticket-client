@@ -40,12 +40,12 @@ export default class MovieSeat extends Component {
   handleCallback = (seat, isBooked) => {
     let seatStatus = this.state.bookedSeats;
     if (isBooked) {
-      if (!this.state.bookedSeats.some(item=> item.id === seat.id)) {
+      if (!this.state.bookedSeats.some((item) => item.id === seat.id)) {
         seatStatus.push(seat);
         this.setState({ bookedSeats: seatStatus });
       }
     } else {
-      seatStatus = seatStatus.filter(item => item.id !== seat.id);
+      seatStatus = seatStatus.filter((item) => item.id !== seat.id);
       this.setState({ bookedSeats: seatStatus });
     }
   };
@@ -86,7 +86,7 @@ export default class MovieSeat extends Component {
 
       // convert chosen seat list to text
       let bookedSeats = this.ChosenSeatList(this.state.bookedSeats);
-      let seatIdArr = this.state.bookedSeats.map(seat => seat.id);
+      let seatIdArr = this.state.bookedSeats.map((seat) => seat.id);
 
       localStorage.removeItem("bookedSeats");
       localStorage.setItem("bookedSeats", JSON.stringify(seatIdArr));
@@ -203,7 +203,9 @@ export default class MovieSeat extends Component {
                   <span>Ghế đã chọn</span>
 
                   <h3 className="title">
-                    <ChosenSeatList bookedSeats={this.ChosenSeatList(this.state.bookedSeats)} />
+                    <ChosenSeatList
+                      bookedSeats={this.ChosenSeatList(this.state.bookedSeats)}
+                    />
                   </h3>
                 </div>
 

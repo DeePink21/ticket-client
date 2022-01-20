@@ -5,16 +5,14 @@ export default class MovieCastItem extends Component {
     return (
       <div className="cast-item">
         <div className="cast-thumb">
-        
-            <img
-              src={
-                // process.env.PUBLIC_URL +
-                // "/assets/images/cast/cast01.jpg"
-                this.props.cast.profile
-              }
-              alt="cast"
-            />
-      
+          <img
+            src={
+              // process.env.PUBLIC_URL +
+              // "/assets/images/cast/cast01.jpg"
+              this.props.cast.profile
+            }
+            alt="cast"
+          />
         </div>
         <div className="cast-content">
           <h6 className="cast-title">

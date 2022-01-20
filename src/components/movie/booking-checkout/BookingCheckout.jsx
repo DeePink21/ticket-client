@@ -31,7 +31,7 @@ export default class BookingCheckout extends Component {
       isLogged: false,
       isRedirect: false,
       phone: "",
-     
+
       email: "",
       promoCode: "",
       offer: {
@@ -338,7 +338,6 @@ export default class BookingCheckout extends Component {
         //   this.setState({
         //     offer: res.data[0],
         //   });
-
         //   // update total amount and tax
         //   // create order object
         //   let totalAmount =
@@ -348,7 +347,6 @@ export default class BookingCheckout extends Component {
         //     tax: totalAmount * 0.1,
         //   };
         //   let order = { ...this.state.order, ...newData };
-
         //   OrderService.updateOrder(order).then((res) => {
         //     console.log(res.data);
         //     this.setState({
@@ -356,7 +354,6 @@ export default class BookingCheckout extends Component {
         //       order: res.data,
         //       // order: order
         //     });
-
         //     localStorage.setItem("order", JSON.stringify(res.data));
         //   });
         // });

@@ -8,7 +8,7 @@ class ReviewService {
 
   postReview = (review) => {
     return axios.post(`${api.reviews}`, review);
-  }
+  };
 }
 
 export default new ReviewService();

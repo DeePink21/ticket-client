@@ -4,7 +4,6 @@ import { vi } from "date-fns/locale";
 import { parseJSON, formatDistance } from "date-fns";
 
 export default class ReviewItem extends Component {
-
   getStars() {
     return Array(this.props.review.star).fill(
       <i className="flaticon-favorite-heart-button" />
@@ -12,20 +11,18 @@ export default class ReviewItem extends Component {
   }
 
   getDate = (date) => {
-      if (date)
-    return this.dateToString(parseJSON(date));
+    if (date) return this.dateToString(parseJSON(date));
   };
 
   getDate2 = (date) => {
-    return formatDistance(
-      parseJSON(date),
-      new Date(),
-      { addSuffix: true, locale: vi }
-    );
+    return formatDistance(parseJSON(date), new Date(), {
+      addSuffix: true,
+      locale: vi,
+    });
   };
 
   dateToString = formatWithOptions({ locale: vi }, "dd-MM-yyyy");
-  
+
   render() {
     return (
       <div className="movie-review-item">
@@ -36,7 +33,9 @@ export default class ReviewItem extends Component {
             </a>
           </div>
           <div className="movie-review-info">
-            <span className="reply-date">{this.getDate2(this.props.review.createdAt)}</span>
+            <span className="reply-date">
+              {this.getDate2(this.props.review.createdAt)}
+            </span>
             <h6 className="subtitle">
               <a href="#0">{this.props.review.createdBy}</a>
             </h6>

@@ -8,7 +8,12 @@ export default function MovieOffer() {
         <div className="offer-body">
           <div className="offer-item">
             <div className="thumb">
-              <img src={ process.env.PUBLIC_URL + "/assets/images/sidebar/offer01.png"} alt="sidebar" />
+              <img
+                src={
+                  process.env.PUBLIC_URL + "/assets/images/sidebar/offer01.png"
+                }
+                alt="sidebar"
+              />
             </div>
             <div className="content">
               <h6>
@@ -19,7 +24,12 @@ export default function MovieOffer() {
           </div>
           <div className="offer-item">
             <div className="thumb">
-              <img src={ process.env.PUBLIC_URL + "/assets/images/sidebar/offer02.png"} alt="sidebar" />
+              <img
+                src={
+                  process.env.PUBLIC_URL + "/assets/images/sidebar/offer02.png"
+                }
+                alt="sidebar"
+              />
             </div>
             <div className="content">
               <h6>
@@ -33,7 +43,12 @@ export default function MovieOffer() {
           </div>
           <div className="offer-item">
             <div className="thumb">
-              <img src={ process.env.PUBLIC_URL + "/assets/images/sidebar/offer03.png"} alt="sidebar" />
+              <img
+                src={
+                  process.env.PUBLIC_URL + "/assets/images/sidebar/offer03.png"
+                }
+                alt="sidebar"
+              />
             </div>
             <div className="content">
               <h6>
@@ -50,7 +65,13 @@ export default function MovieOffer() {
       <div className="widget-1 widget-banner">
         <div className="widget-1-body">
           <a href="#0">
-            <img src={ process.env.PUBLIC_URL + "/assets/images/sidebar/banner/banner01.jpg"} alt="banner" />
+            <img
+              src={
+                process.env.PUBLIC_URL +
+                "/assets/images/sidebar/banner/banner01.jpg"
+              }
+              alt="banner"
+            />
           </a>
         </div>
       </div>

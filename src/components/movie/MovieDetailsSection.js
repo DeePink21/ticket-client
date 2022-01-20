@@ -154,7 +154,10 @@ export default class MovieDetailsSection extends Component {
             user review <span>{this.state.numOfReviews}</span>
           </li>
         </ul>
-        <ReviewSection movieId={this.props.movie.id} reviews={this.state.reviews}/>
+        <ReviewSection
+          movieId={this.props.movie.id}
+          reviews={this.state.reviews}
+        />
       </div>
     );
   }

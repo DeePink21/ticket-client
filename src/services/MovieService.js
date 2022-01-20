@@ -1,8 +1,7 @@
-import axios from 'axios';
+import axios from "axios";
 import * as api from "./API_BASE_URL";
 
 class MovieService {
-
   getAll = async () => {
     return await axios.get(api.movies);
   };

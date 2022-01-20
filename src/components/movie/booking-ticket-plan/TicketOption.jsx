@@ -74,14 +74,13 @@ export default class TicketOption extends Component {
         theaters: theaters,
         showtimes: res.data.content,
         // showtimes: res.data,
-        
+
         filtedShowtimes: res.data.content,
         timeStarts: timeStarts,
       });
       console.log(this.state);
       // var showtimes = this.state.showtimes;
     });
-
   }
 
   mappingDropdownList = (data) => {
@@ -123,7 +122,7 @@ export default class TicketOption extends Component {
     }
 
     console.log(showtimes);
-    
+
     this.setState({
       filtedShowtimes: showtimes,
       [target]: e,

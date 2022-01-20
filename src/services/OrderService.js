@@ -9,14 +9,14 @@ class OrderService {
 
   updateOrder = (order) => {
     return axios.put(`${api.ordersAnonymous}/${order.id}`, order);
-  }
+  };
   getOrdersByUserId = (userId) => {
-    return axios.get(`${api.ordersUser}?user_id=${userId}`)
-  }
+    return axios.get(`${api.ordersUser}?user_id=${userId}`);
+  };
 
-  getOrderById=(orderId) => {
-    return axios.get(`${api.orders}/${orderId}`)
-  }
+  getOrderById = (orderId) => {
+    return axios.get(`${api.orders}/${orderId}`);
+  };
 }
 
 export default new OrderService();

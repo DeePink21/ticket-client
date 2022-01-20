@@ -10,9 +10,9 @@ class UserService {
     });
   };
 
-//   getOrdersByUserId = (userId) => {
-//     return axios.get(`${api.ordersUser}?user_id=${userId}`);
-//   };
+  //   getOrdersByUserId = (userId) => {
+  //     return axios.get(`${api.ordersUser}?user_id=${userId}`);
+  //   };
 }
 
 export default new UserService();

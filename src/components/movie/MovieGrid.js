@@ -54,7 +54,6 @@ export default class MovieGrid extends Component {
 
   getNowShowing() {
     console.log("now");
-   
   }
 
   componentWillReceiveProps(newProps) {

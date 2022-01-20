@@ -72,7 +72,6 @@ export default class UserDetail extends Component {
     });
   };
 
-
   componentDidUpdate() {
     console.log(this.state);
   }
@@ -87,19 +86,17 @@ export default class UserDetail extends Component {
         }}
       />;
 
-      return (
-        <Login />
-      );
-    } 
-      return (
-        <div className="event-facility padding-bottom padding-top">
-          <div className="container">
-            <div className="row">
+      return <Login />;
+    }
+    return (
+      <div className="event-facility padding-bottom padding-top">
+        <div className="container">
+          <div className="row">
             <div className="col-lg-2"></div>
-              <div className="col-lg-8">
-                <div className="checkout-widget checkout-contact">
-                  <h5 className="title">Thông tin người dùng </h5>
-                  {/* <form className="checkout-contact-form">
+            <div className="col-lg-8">
+              <div className="checkout-widget checkout-contact">
+                <h5 className="title">Thông tin người dùng </h5>
+                {/* <form className="checkout-contact-form">
             <div className="form-group">
               <input type="text" placeholder="Full Name" />
             </div>
@@ -114,97 +111,97 @@ export default class UserDetail extends Component {
             </div>
           </form> */}
 
-                  <form className="checkout-contact-form">
-                    <div className="form-group">
-                      <input
-                        type="text"
-                        placeholder="Họ "
-                        value={this.state.firstName}
-                        onChange={(e) => this.isInputChange(e)}
-                        name="firstName"
-                        id="firstName"
-                      />
-                    </div>
-                    <div className="form-group">
-                      <input
-                        type="text"
-                        placeholder="Tên "
-                        value={this.state.lastName}
-                        onChange={(e) => this.isInputChange(e)}
-                        name="lastName"
-                        id="lastName"
-                      />
-                    </div>
-                    <div className="form-group">
-                      <input
-                        type="email"
-                        placeholder="Email "
-                        value={this.state.email}
-                        onChange={(e) => this.isInputChange(e)}
-                        name="email"
-                        id="email"
-                      />
-                    </div>
-                    <div className="form-group">
-                      <input
-                        type="tel"
-                        placeholder="Số điện thoại "
-                        value={this.state.phone}
-                        onChange={(e) => this.isInputChange(e)}
-                        name="phone"
-                        id="phone"
-                        // required
-                        //  pattern="/((09|03|07|08|05)+([0-9]{8})\b)/g"
-                      />
-                    </div>
-                    <div className="form-group">
-                      <input
-                        onClick={(e) => {
-                          this.updateUser(e);
-                        }}
-                        type="submit"
-                        value="Cập nhật thông tin"
-                        className="custom-button"
-                      />
-                    </div>
-                  </form>
-                </div>
-                <div className="checkout-widget checkout-contact">
-                  <h5 className="title">Lịch sử đặt vé</h5>
+                <form className="checkout-contact-form">
+                  <div className="form-group">
+                    <input
+                      type="text"
+                      placeholder="Họ "
+                      value={this.state.firstName}
+                      onChange={(e) => this.isInputChange(e)}
+                      name="firstName"
+                      id="firstName"
+                    />
+                  </div>
+                  <div className="form-group">
+                    <input
+                      type="text"
+                      placeholder="Tên "
+                      value={this.state.lastName}
+                      onChange={(e) => this.isInputChange(e)}
+                      name="lastName"
+                      id="lastName"
+                    />
+                  </div>
+                  <div className="form-group">
+                    <input
+                      type="email"
+                      placeholder="Email "
+                      value={this.state.email}
+                      onChange={(e) => this.isInputChange(e)}
+                      name="email"
+                      id="email"
+                    />
+                  </div>
+                  <div className="form-group">
+                    <input
+                      type="tel"
+                      placeholder="Số điện thoại "
+                      value={this.state.phone}
+                      onChange={(e) => this.isInputChange(e)}
+                      name="phone"
+                      id="phone"
+                      // required
+                      //  pattern="/((09|03|07|08|05)+([0-9]{8})\b)/g"
+                    />
+                  </div>
+                  <div className="form-group">
+                    <input
+                      onClick={(e) => {
+                        this.updateUser(e);
+                      }}
+                      type="submit"
+                      value="Cập nhật thông tin"
+                      className="custom-button"
+                    />
+                  </div>
+                </form>
+              </div>
+              <div className="checkout-widget checkout-contact">
+                <h5 className="title">Lịch sử đặt vé</h5>
 
-                  <div className="row mb-30-none">
-                    <div className="col-md-6 col-xl-7">
-                      <form className="checkout-contact-form mb-0">
-                        <div className="form-group">
-                          <input
-                            value={this.state.query}
-                            onChange={(e) => this.isInputChange(e)}
-                            name="query"
-                            type="text"
-                            // defaultValue=""
-                            placeholder="Tìm phim đã đặt"
-                          />
-                        </div>
-                        {/* <div className="form-group">
+                <div className="row mb-30-none">
+                  <div className="col-md-6 col-xl-7">
+                    <form className="checkout-contact-form mb-0">
+                      <div className="form-group">
+                        <input
+                          value={this.state.query}
+                          onChange={(e) => this.isInputChange(e)}
+                          name="query"
+                          type="text"
+                          // defaultValue=""
+                          placeholder="Tìm phim đã đặt"
+                        />
+                      </div>
+                      {/* <div className="form-group">
                         <input
                           type="submit"
                           defaultValue="Verify"
                           className="custom-button"
                         />
                       </div> */}
-                      </form>
-                    </div>
+                    </form>
                   </div>
                 </div>
               </div>
-              <div className="col-lg-2"></div>
             </div>
-            <MovieOrderList
-              userId={1}
-              // {this.state.user.id}
-            ></MovieOrderList>
+            <div className="col-lg-2"></div>
           </div>
+          <MovieOrderList
+            userId={1}
+            // {this.state.user.id}
+          ></MovieOrderList>
         </div>
-      );
+      </div>
+    );
   }
 }

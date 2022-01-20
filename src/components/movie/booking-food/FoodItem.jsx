@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 
 export default class FoodItem extends Component {
   constructor(props) {
@@ -19,12 +19,11 @@ export default class FoodItem extends Component {
     console.log(this.state.value);
     console.log(this.props.food.id);
     this.props.parentCallback(this.props.food.id, this.state.value);
-
   }
 
   formatCurrency(n) {
-    var temp = n.toFixed(1).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
-    return temp.slice(0, temp.length - 2) + ' vnd';
+    var temp = n.toFixed(1).replace(/(\d)(?=(\d{3})+\.)/g, "$1,");
+    return temp.slice(0, temp.length - 2) + " vnd";
   }
 
   render() {
@@ -33,10 +32,16 @@ export default class FoodItem extends Component {
         <div className="grid-inner">
           <div className="grid-thumb">
             <img
-              src={this.props.food.image ? this.props.food.image : "/assets/images/movie/popcorn/pop1.png"}
+              src={
+                this.props.food.image
+                  ? this.props.food.image
+                  : "/assets/images/movie/popcorn/pop1.png"
+              }
               alt="movie/popcorn"
             />
-            <div className="offer-tag">{this.formatCurrency(this.props.food.price)}</div>
+            <div className="offer-tag">
+              {this.formatCurrency(this.props.food.price)}
+            </div>
             <div className="offer-remainder">
               <h6 className="o-title mt-0">20%</h6>
               <span>off</span>
@@ -63,6 +68,6 @@ export default class FoodItem extends Component {
           </div>
         </div>
       </div>
-    )
+    );
   }
 }

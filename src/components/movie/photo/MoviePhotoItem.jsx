@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 export default class MoviePhotoItem extends Component {
   render() {
@@ -29,15 +29,9 @@ export default class MoviePhotoItem extends Component {
           href="/assets/images/movie/movie-details02.jpg"
           className="img-pop"
         > */}
-          <img
-            src="/assets/images/movie/movie-details02.jpg"
-            alt="movie"
-          />
+        <img src="/assets/images/movie/movie-details02.jpg" alt="movie" />
         {/* </a> */}
       </div>
-
-    )
+    );
   }
 }
-
-

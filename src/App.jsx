@@ -9,8 +9,7 @@ import { Route, Switch } from "react-router";
 function App() {
   return (
     <Router>
-       <RouterURL></RouterURL>
-     
+      <RouterURL></RouterURL>
     </Router>
   );
 }

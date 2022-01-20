@@ -1,9 +1,8 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 export default class BookMovieDetail extends Component {
   render() {
-
     return (
       <div>
         <section className="book-section bg-one">
@@ -23,8 +22,8 @@ export default class BookMovieDetail extends Component {
                     </div>
                     <div className="counter-area">
                       <span
-                        // className="counter-item odometer"
-                        // data-odometer-final={88}
+                      // className="counter-item odometer"
+                      // data-odometer-final={88}
                       >
                         4.5
                       </span>
@@ -44,24 +43,18 @@ export default class BookMovieDetail extends Component {
                       />
                     </div>
                     <div className="counter-area">
-                      <span
-                        
-                      >
-                        #20
-                      </span>
+                      <span>#20</span>
                     </div>
                   </div>
                   <p>Xếp hạng IMDB</p>
                 </div>
-
               </div>
-              <Link to={
-                  "/choose-theater/" +
-                  this.props.movieID
-                }
-                 className="custom-button">
-              book tickets
-            </Link>
+              <Link
+                to={"/choose-theater/" + this.props.movieID}
+                className="custom-button"
+              >
+                book tickets
+              </Link>
             </div>
           </div>
         </section>

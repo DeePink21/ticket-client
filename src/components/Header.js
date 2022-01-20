@@ -72,23 +72,25 @@ function Header() {
           </div>
         </div>
       </header>
-    )} else return (
-    <header className="header-section">
-      <div className="container">
-        <div className="header-wrapper">
-          <div className="logo">
-            <Link to="/">
-              <img src="/assets/images/logo/logo.png" alt="logo" />
-            </Link>
+    );
+  } else
+    return (
+      <header className="header-section">
+        <div className="container">
+          <div className="header-wrapper">
+            <div className="logo">
+              <Link to="/">
+                <img src="/assets/images/logo/logo.png" alt="logo" />
+              </Link>
+            </div>
+
+            {isLogged()}
+
+            <div className="header-bar d-lg-none"></div>
           </div>
-
-          {isLogged()}
-
-          <div className="header-bar d-lg-none"></div>
         </div>
-      </div>
-    </header>
-  );
+      </header>
+    );
 }
 
 export default withRouter(Header);

@@ -1,20 +1,20 @@
 .item-block {
-    color: #ffffff;
-    padding: 5px;
-    width: 70px;
-    background: #cccccc;
-    position: relative;
-    mask-position: center center;
-    -webkit-mask-position: center center;
-    text-align: center;
-    mask-image: url(movie-seat.png);
-    -webkit-mask-image: url(movie-seat.png);
-    -webkit-mask-repeat: no-repeat;
-            mask-repeat: no-repeat;
-    -webkit-mask-size: 100% 100%;
-            mask-size: 100% 100%;
-    cursor: pointer;
-    -webkit-transition: all ease 0.3s;
-    transition: all ease 0.3s;
-    margin: 5px;
-  }
+  color: #ffffff;
+  padding: 5px;
+  width: 70px;
+  background: #cccccc;
+  position: relative;
+  mask-position: center center;
+  -webkit-mask-position: center center;
+  text-align: center;
+  mask-image: url(movie-seat.png);
+  -webkit-mask-image: url(movie-seat.png);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  cursor: pointer;
+  -webkit-transition: all ease 0.3s;
+  transition: all ease 0.3s;
+  margin: 5px;
+}

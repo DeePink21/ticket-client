@@ -42,26 +42,24 @@ export default class ScheduleItem extends Component {
 
   expiredShowtime = (e) => {
     e.preventDefault();
-    alert("Suất chiếu đã hết hạn đặt!!!\nVui lòng chọn suất khác!")
-  }
+    alert("Suất chiếu đã hết hạn đặt!!!\nVui lòng chọn suất khác!");
+  };
 
   render() {
     if (this.props.showtime) {
       if (this.props.showtime.status === "Expire") {
         return (
-          <a href="#0" onClick={e => this.expiredShowtime(e)}>
+          <a href="#0" onClick={(e) => this.expiredShowtime(e)}>
             <div className="item-block">{this.getTime()}</div>
             <div className="">{this.getDate()}</div>
-            </a>
+          </a>
         );
       }
 
       return (
         <Link to={"/choose-seats/" + this.props.showtime.id}>
-
           <div className="item">{this.getTime()}</div>
           <div className="">{this.getDate2()}</div>
-
         </Link>
       );
     } else {

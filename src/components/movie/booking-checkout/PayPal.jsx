@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from 'react'
-import ReactDOM from 'react-dom';
+import React, { useState, useEffect } from "react";
+import ReactDOM from "react-dom";
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 // const PayPalButton = paypal.Button.driver('react', { React, ReactDOM });
 
 export default function PayPal(props) {
-
   const [show, setShow] = useState(true);
   const [success, setSuccess] = useState(false);
   const [ErrorMessage, setErrorMessage] = useState("");
@@ -16,9 +15,7 @@ export default function PayPal(props) {
       alert("Payment successful!!");
       // return <Redirect push to="/book-result" />;
     }
-  },
-    [orderID, props, success]
-  );
+  }, [orderID, props, success]);
 
   // creates a paypal order
   const createOrder = (data, actions) => {
@@ -65,17 +62,16 @@ export default function PayPal(props) {
   return (
     <PayPalScriptProvider
       options={{
-        "client-id": "AePqX3x49W0bLBZVxxnL39ylHITs8RLdNBTPSfAVRPX2Vib-3tuROGUNL2LwFXgoKn9-QCd8Yp8QrLN9",
+        "client-id":
+          "AePqX3x49W0bLBZVxxnL39ylHITs8RLdNBTPSfAVRPX2Vib-3tuROGUNL2LwFXgoKn9-QCd8Yp8QrLN9",
       }}
     >
-
       <PayPalButtons
         // style={{ layout: "vertical" }}
         createOrder={createOrder}
         onApprove={onApprove}
         onError={onError}
       />
-
     </PayPalScriptProvider>
   );
 }
